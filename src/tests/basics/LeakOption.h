@@ -15,6 +15,8 @@ enum LeakOption
     eHeapAlloc,
     eIMalloc,
     eGetProcMalloc,
+    eSysAllocString,
+    eSafeArray,
     eCount,
 };
 
