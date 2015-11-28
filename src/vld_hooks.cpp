@@ -620,143 +620,104 @@ ULONG VisualLeakDetector::Release ()
 
 BSTR VisualLeakDetector::_SysAllocString(__in_z_opt const OLECHAR * psz)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T( "\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SysAllocString);
+    CaptureContext cc((void*)SysAllocString);
     return SysAllocString(psz);
 }
 
 BSTR VisualLeakDetector::_SysAllocStringLen(__in_ecount_opt(ui) const OLECHAR * strIn, UINT ui)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T( "\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SysAllocStringLen);
+    CaptureContext cc((void*)SysAllocStringLen);
     return SysAllocStringLen(strIn, ui);
 }
 
 BSTR VisualLeakDetector::_SysAllocStringByteLen(__in_z_opt LPCSTR psz, __in UINT len)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T( "\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SysAllocStringByteLen);
+    CaptureContext cc((void*)SysAllocStringByteLen);
     return SysAllocStringByteLen(psz, len);
 }
 
 INT VisualLeakDetector::_SysReAllocString(__deref_inout_ecount_z(stringLength(psz) + 1) BSTR* pbstr, __in_z_opt const OLECHAR* psz)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SysReAllocString);
+    CaptureContext cc((void*)SysReAllocString);
     return SysReAllocString(pbstr, psz);
 }
 
 INT VisualLeakDetector::_SysReAllocStringLen(__deref_inout_ecount_z(len + 1) BSTR* pbstr, __in_z_opt const OLECHAR* psz, __in unsigned int len)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SysReAllocStringLen);
+    CaptureContext cc((void*)SysReAllocStringLen);
     return SysReAllocStringLen(pbstr, psz, len);
 }
 
 HRESULT VisualLeakDetector::_SafeArrayAllocData(__in SAFEARRAY * psa)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SafeArrayAllocData);
+    CaptureContext cc((void*)SafeArrayAllocData);
     return SafeArrayAllocData(psa);
 }
 
 HRESULT VisualLeakDetector::_SafeArrayAllocDescriptor(__in UINT cDims, __deref_out SAFEARRAY ** ppsaOut)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SafeArrayAllocDescriptor);
+    CaptureContext cc((void*)SafeArrayAllocDescriptor);
     return SafeArrayAllocDescriptor(cDims, ppsaOut);
 }
 
 HRESULT VisualLeakDetector::_SafeArrayAllocDescriptorEx(__in VARTYPE vt, __in UINT cDims, __deref_out SAFEARRAY ** ppsaOut)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SafeArrayAllocDescriptorEx);
+    CaptureContext cc((void*)SafeArrayAllocDescriptorEx);
     return SafeArrayAllocDescriptorEx(vt, cDims, ppsaOut);
 }
 
 SAFEARRAY* VisualLeakDetector::_SafeArrayCreate(__in VARTYPE vt, __in UINT cDims, __in SAFEARRAYBOUND * rgsabound)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SafeArrayCreate);
+    CaptureContext cc((void*)SafeArrayCreate);
     return SafeArrayCreate(vt, cDims, rgsabound);
 }
 
 SAFEARRAY* VisualLeakDetector::_SafeArrayCreateEx(__in VARTYPE vt, __in UINT cDims, __in SAFEARRAYBOUND * rgsabound, __in PVOID pvExtra)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SafeArrayCreateEx);
+    CaptureContext cc((void*)SafeArrayCreateEx);
     return SafeArrayCreateEx(vt, cDims, rgsabound, pvExtra);
 }
 
 SAFEARRAY* VisualLeakDetector::_SafeArrayCreateVector(__in VARTYPE vt, __in LONG lLbound, __in ULONG cElements)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SafeArrayCreateVector);
+    CaptureContext cc((void*)SafeArrayCreateVector);
     return SafeArrayCreateVector(vt, lLbound, cElements);
 }
 
 SAFEARRAY* VisualLeakDetector::_SafeArrayCreateVectorEx(__in VARTYPE vt, __in LONG lLbound, __in ULONG cElements, __in PVOID pvExtra)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SafeArrayCreateVectorEx);
+    CaptureContext cc((void*)SafeArrayCreateVectorEx);
     return SafeArrayCreateVectorEx(vt, lLbound, cElements, pvExtra);
 }
 
 HRESULT VisualLeakDetector::_SafeArrayRedim(__inout SAFEARRAY * psa, __in SAFEARRAYBOUND * psaboundNew)
 {
-#ifdef PRINTHOOKCALLS
-    DbgReport(_T(__FUNCTION__) _T("\n"));
-#endif
+    PRINT_HOOKED_FUNCTION();
 
-    context_t context;
-    CaptureContext cc(context, (void*)SafeArrayRedim);
+    CaptureContext cc((void*)SafeArrayRedim);
     return SafeArrayRedim(psa, psaboundNew);
 }
