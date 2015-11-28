@@ -312,9 +312,7 @@
   <ItemGroup>
     <ClCompile Include="Allocs.cpp" />
     <ClCompile Include="basics.cpp" />
-    <ClCompile Include="basics_disabled.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="basics_disabled.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

@@ -72,9 +72,9 @@ __declspec(dllexport) const wchar_t* VldInternalGetAllocationCallstack(void* all
 void allocMalloc(bool bFree)
 {
     int* leaked_memory = (int*)malloc(78);
-    //const wchar_t* callstack = VldInternalGetAllocationCallstack(leaked_memory, false);
+    const wchar_t* callstack = VldInternalGetAllocationCallstack(leaked_memory, false);
     int* leaked_memory_dbg = (int*)_malloc_dbg(80, _NORMAL_BLOCK, __FILE__, __LINE__);
-    //callstack = VldInternalGetAllocationCallstack(leaked_memory_dbg, false);
+    callstack = VldInternalGetAllocationCallstack(leaked_memory_dbg, false);
     if (bFree)
     {
         free(leaked_memory);
