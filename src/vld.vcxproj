@@ -63,7 +63,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <BaseAddress>0x03200000</BaseAddress>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalLibraryDirectories>$(SolutionDir)\lib\dbghelp\lib\$(PlatformName);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
